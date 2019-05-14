@@ -10,9 +10,12 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import AdHead from './components/head/AdHead.vue'
+import VueRouter from 'vue-router'
 
+Vue.use(VueRouter);
 
 var initPage;
 
@@ -20,7 +23,7 @@ var getNavData;
 
 initPage = function(){
 }
-
+//获取导航数据
 getNavData = function(){
   var navs = [{
     text: "首页",
@@ -34,6 +37,10 @@ getNavData = function(){
     }]
   }];
   return navs;
+}
+//定义路由
+const User = {
+  props: ['id']
 }
 
 export default {
