@@ -54,7 +54,7 @@ export default {
     var navs = getNavData();
     return {
       navs: navs,
-      selectedNav: 0
+      selectedNav: "000"
     }
   }
 }
