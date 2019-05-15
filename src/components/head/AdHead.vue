@@ -11,7 +11,9 @@
 				:class="{active: nav.id == selectedNav}"
 				:key="nav.id"
 			>
-				{{nav.text}}
+				<router-link to="{{nav.link}}">
+					{{nav.text}}
+				</router-link>
 			</div>
 		</div>
 	</div>

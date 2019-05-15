@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import App from './App.vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
@@ -22,7 +23,6 @@ requireComponent.keys().forEach(fileName => {
 				.pop()
 				.replace(/\.\w+$/, '')
 		)
-
 	);
 	Vue.component(
 		componentName,
@@ -31,6 +31,4 @@ requireComponent.keys().forEach(fileName => {
 });
 new Vue({
 	render: h => h(App),
-}).$mount('#app')
-
-$(function(){})
+}).$mount('#app');

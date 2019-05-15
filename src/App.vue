@@ -13,9 +13,6 @@
 import Vue from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import AdHead from './components/head/AdHead.vue'
-import VueRouter from 'vue-router'
-
-Vue.use(VueRouter);
 
 var initPage;
 
@@ -27,22 +24,20 @@ initPage = function(){
 getNavData = function(){
   var navs = [{
     text: "首页",
-    id: "000"
+    id: "000",
+    link: "Home"
   },{
     text: "技术",
     id: "010",
+    link: "Tech"
     child:[{
       text: "前端",
-      id: "011"
+      id: "011",
+      link: "Tech/Front"
     }]
   }];
   return navs;
 }
-//定义路由
-const User = {
-  props: ['id']
-}
-
 export default {
   name: 'app',
   components: {
