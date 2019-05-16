@@ -1,35 +1,47 @@
 <template>
   <div id="app" class="container">
     <div id="head" class="row">
-      <ad-head :navs="navs" :selectedNav="selectedNav"></ad-head>
+      <div class="ad-head col-12" id="ad-head">
+        <div class="ad-head-icon col-12">
+          <div class="ad-head-icon-img"></div>
+          <div class="ad-head-icon-text">个人页面</div>
+        </div>
+        <div class="ad-nav col-12">
+          <div class="ad-nav-elem" 
+            v-for="nav in navs" 
+            v-on:click="changeNav(nav)"
+            :class="{active: nav.id == selectedNav}"
+            :key="nav.id"
+          >
+            <router-link :to="nav.link">
+              {{nav.text}}
+            </router-link>
+          </div>
+        </div>
+      </div>
     </div>
-    <HelloWorld />
+    <router-view></router-view>
+    <hello-world></hello-world>
     <div id="foot">
     </div>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
-import AdHead from './components/head/AdHead.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
 
-var initPage;
+// var initPage;
 
-var getNavData;
-
-initPage = function(){
-}
 //获取导航数据
-getNavData = function(){
-  var navs = [{
+var getNavData = function(){
+  navs = [{
     text: "首页",
     id: "000",
-    link: "Home"
+    link: "Index"
   },{
     text: "技术",
     id: "010",
-    link: "Tech"
+    link: "Tech",
     child:[{
       text: "前端",
       id: "011",
@@ -37,16 +49,18 @@ getNavData = function(){
     }]
   }];
   return navs;
-}
+};
+var navs = getNavData();
+
+
+// initPage = function(){
+// }
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    HelloWorld,
-    AdHead
+    HelloWorld
   },
-  data: function(){
-    initPage();
-    var navs = getNavData();
+  data:function(){
     return {
       navs: navs,
       selectedNav: "000"
